@@ -4,15 +4,14 @@ import tempfile
 from pathlib import Path
 
 import pytest
-
 from cleanup_preview_session import cleanup_preview_session
+from preview_planning_doc import preview_planning_doc, refresh_planning_doc_preview
 from preview_session import (
     PreviewSession,
     preview_html_path,
     read_session,
     write_session,
 )
-from preview_planning_doc import preview_planning_doc, refresh_planning_doc_preview
 
 
 @pytest.fixture(autouse=True)

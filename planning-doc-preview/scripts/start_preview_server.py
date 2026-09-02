@@ -1,15 +1,14 @@
 from __future__ import annotations
 
 import socket
-import tempfile
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
 from cleanup_preview_session import ensure_clean_single_preview_session
 from preview_session import PreviewSession, clear_session, write_session
-
 
 SERVER_STARTUP_SNIPPET = """
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer

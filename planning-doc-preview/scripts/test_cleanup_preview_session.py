@@ -4,15 +4,14 @@ import tempfile
 from pathlib import Path
 
 import pytest
-
 from cleanup_preview_session import cleanup_preview_session
 from preview_session import (
     PreviewSession,
     preview_root_dir,
     read_session,
     session_metadata_path,
+    write_session,
 )
-from preview_session import write_session
 from start_preview_server import start_preview_server
 from test_start_preview_server import _stop_server
 

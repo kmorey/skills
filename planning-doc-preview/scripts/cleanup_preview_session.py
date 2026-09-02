@@ -13,7 +13,6 @@ from preview_session import (
     session_metadata_path,
 )
 
-
 MANUAL_CLEANUP_INSTRUCTION = (
     f"stale preview session could not be cleaned up; run `python {Path(__file__)}`"
 )

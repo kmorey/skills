@@ -3,7 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from render_markdown_preview import render_markdown_file
 
 

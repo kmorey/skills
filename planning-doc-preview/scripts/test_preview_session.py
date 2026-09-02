@@ -4,7 +4,6 @@ import tempfile
 from pathlib import Path
 
 import pytest
-
 from preview_session import (
     PreviewSession,
     preview_root_dir,
@@ -12,7 +11,6 @@ from preview_session import (
     session_metadata_path,
     write_session,
 )
-
 
 REAL_TEMP_ROOT = Path(tempfile.gettempdir()) / "planning-doc-preview"
 
