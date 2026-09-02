@@ -41,11 +41,11 @@ Before responding, verify that each proof path is a regular file, record the
 viewport or device represented, and confirm that no code or configuration
 changed after capture. If the revision changed, recapture.
 
-## Preview the primary proof in Herdr
+## Preview proofs in Herdr
 
 When `HERDR_ENV=1`, `HERDR_PANE_ID` is set, and `herdr` is available, choose
-one representative PNG as the primary proof and open it beside the current
-pane without stealing focus:
+the relevant PNG proofs, JSON-encode their absolute paths in display order, and
+open them in one gallery beside the current pane without stealing focus:
 
 ```sh
 herdr plugin pane open \
@@ -54,19 +54,19 @@ herdr plugin pane open \
   --placement split \
   --target-pane "$HERDR_PANE_ID" \
   --direction right \
-  --env "VISUAL_PROOF_PATH=/absolute/path/to/proof.png" \
+  --env 'VISUAL_PROOF_PATHS=["/absolute/path/to/first.png","/absolute/path/to/second.png"]' \
   --no-focus
 ```
 
-The viewer currently supports PNG. Prefer capturing the primary proof as PNG
-when Herdr is active; retain the original formats and links for any additional
-proof.
+The viewer currently supports PNG and accepts at most 24 paths. Prefer PNG for
+proofs when Herdr is active; retain the original formats and links for any
+additional proof. The user can navigate with Left/Right Arrow or `h`/`l`.
 
 If Herdr reports that `kmorey.visual-proof` is not installed, install the
 pinned plugin and retry once:
 
 ```sh
-herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.2.0 -y
+herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.3.0 -y
 ```
 
 If sandboxing denies access to the Herdr socket, request the normal command
