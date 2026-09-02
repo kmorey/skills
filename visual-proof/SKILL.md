@@ -41,6 +41,39 @@ Before responding, verify that each proof path is a regular file, record the
 viewport or device represented, and confirm that no code or configuration
 changed after capture. If the revision changed, recapture.
 
+## Preview the primary proof in Herdr
+
+When `HERDR_ENV=1`, `HERDR_PANE_ID` is set, and `herdr` is available, choose
+one representative PNG as the primary proof and open it beside the current
+pane without stealing focus:
+
+```sh
+herdr plugin pane open \
+  --plugin kmorey.visual-proof \
+  --entrypoint viewer \
+  --placement split \
+  --target-pane "$HERDR_PANE_ID" \
+  --direction right \
+  --env "VISUAL_PROOF_PATH=/absolute/path/to/proof.png" \
+  --no-focus
+```
+
+The viewer currently supports PNG. Prefer capturing the primary proof as PNG
+when Herdr is active; retain the original formats and links for any additional
+proof.
+
+If Herdr reports that `kmorey.visual-proof` is not installed, install the
+pinned plugin and retry once:
+
+```sh
+herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.1.0 -y
+```
+
+If sandboxing denies access to the Herdr socket, request the normal command
+approval and retry. Do not open more than one proof pane for a handoff. A pane
+failure does not replace or block the attachment and absolute-link delivery
+below; mention the preview limitation briefly and continue.
+
 ## Deliver proof
 
 Attach or embed images when the conversation supports it. Always include an
