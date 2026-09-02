@@ -66,7 +66,7 @@ If Herdr reports that `kmorey.visual-proof` is not installed, install the
 pinned plugin and retry once:
 
 ```sh
-herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.1.0 -y
+herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.2.0 -y
 ```
 
 If sandboxing denies access to the Herdr socket, request the normal command
