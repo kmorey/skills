@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finish Feature"
+  short_description: "Deliver and safely retire a feature workspace"
+  default_prompt: "Use $finish-feature to deliver this feature and safely clean up its external-agent workspace."

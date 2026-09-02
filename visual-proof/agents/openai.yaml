@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Proof"
+  short_description: "Capture inspectable proof of UI changes"
+  default_prompt: "Use $visual-proof to capture and deliver current visual evidence for this UI change."

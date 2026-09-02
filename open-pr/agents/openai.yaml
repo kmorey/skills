@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Pull Request"
+  short_description: "Validate and deliver a reviewable pull request"
+  default_prompt: "Use $open-pr to synchronize this feature, validate it, collect visual proof, open a pull request, and update linked work items."
