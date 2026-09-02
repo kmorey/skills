@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wagtail Admin UI"
+  short_description: "Build or audit native Wagtail admin UI"
+  default_prompt: "Use $wagtail-admin-ui to build, audit, or align this Wagtail admin interface."
