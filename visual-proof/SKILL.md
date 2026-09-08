@@ -71,9 +71,12 @@ delivery and mention the preview limitation. Existing Visual Proof installations
 must be relinked/reinstalled as `kmorey.file-preview`; the old plugin ID is not an
 alias. For a local Herdr plugins checkout, install the File Preview dependencies
 with `npm --prefix file-preview ci`, then link its directory using
-`herdr plugin link "$PWD/file-preview"` from that checkout. For remote installs,
-use a published revision containing the File Preview plugin rather than an old
-Visual Proof release.
+`herdr plugin link "$PWD/file-preview"` from that checkout. For a released
+installation, use the pinned File Preview release:
+
+```sh
+herdr plugin install kmorey/herdr-plugins/file-preview --ref v0.5.0 --yes
+```
 
 Paths are read on the plugin host beside the originating agent. Copying a path
 or opening externally does not download the file or open a remote file on the
