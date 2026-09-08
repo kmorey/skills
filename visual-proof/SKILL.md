@@ -43,31 +43,42 @@ changed after capture. If the revision changed, recapture.
 
 ## Preview proofs in Herdr
 
-When `HERDR_ENV=1`, `HERDR_PANE_ID` is set, and `herdr` is available, choose
-the relevant PNG proofs, JSON-encode their absolute paths in display order, and
-open them in one gallery beside the current pane without stealing focus:
+When `HERDR_ENV=1`, `HERDR_PANE_ID` is set, and `herdr` is available, check
+`herdr plugin list --plugin kmorey.file-preview --json`. If File Preview is
+installed and enabled, choose the relevant PNG proofs, JSON-encode their
+absolute paths in display order, and open one gallery beside the current pane
+without stealing focus:
 
 ```sh
 herdr plugin pane open \
-  --plugin kmorey.visual-proof \
+  --plugin kmorey.file-preview \
   --entrypoint viewer \
   --placement split \
   --target-pane "$HERDR_PANE_ID" \
   --direction right \
-  --env 'VISUAL_PROOF_PATHS=["/absolute/path/to/first.png","/absolute/path/to/second.png"]' \
+  --env 'FILE_PREVIEW_PATHS=["/absolute/path/to/first.png","/absolute/path/to/second.png"]' \
   --no-focus
 ```
 
-The viewer currently supports PNG and accepts at most 24 paths. Prefer PNG for
-proofs when Herdr is active; retain the original formats and links for any
-additional proof. The user can navigate with Left/Right Arrow or `h`/`l`.
+File Preview accepts at most 24 paths and supports PNG alongside document
+formats. This skill still delivers visual evidence as images. Prefer PNG for
+Herdr proof galleries; retain original formats and links for additional proof.
+A single PNG can use `FILE_PREVIEW_PATH` instead. The user can navigate with
+Left/Right Arrow or `h`/`l`.
 
-If Herdr reports that `kmorey.visual-proof` is not installed, install the
-pinned plugin and retry once:
+If the plugin is missing or disabled, continue with attachment and absolute-link
+delivery and mention the preview limitation. Existing Visual Proof installations
+must be relinked/reinstalled as `kmorey.file-preview`; the old plugin ID is not an
+alias. For a local Herdr plugins checkout, install the File Preview dependencies
+with `npm --prefix file-preview ci`, then link its directory using
+`herdr plugin link "$PWD/file-preview"` from that checkout. For remote installs,
+use a published revision containing the File Preview plugin rather than an old
+Visual Proof release.
 
-```sh
-herdr plugin install kmorey/herdr-plugins/visual-proof --ref v0.3.0 -y
-```
+Paths are read on the plugin host beside the originating agent. Copying a path
+or opening externally does not download the file or open a remote file on the
+client machine. Outside the guarded Herdr environment, use attachment and
+absolute-link delivery directly.
 
 If sandboxing denies access to the Herdr socket, request the normal command
 approval and retry. Do not open more than one proof pane for a handoff. A pane
