@@ -60,6 +60,10 @@ template and override the smallest documented block. Keep result fragments
 separate from page furniture so search, filtering, and pagination updates do
 not erase the header or controls.
 
+Compare the rendered gap below the header with the closest native screen. A
+generic base may provide horizontal padding without vertical spacing; use the
+installed version's spacing utility when needed, accounting for inherited spacing.
+
 ## Compose the native interface
 
 Build the page from Wagtail primitives:
