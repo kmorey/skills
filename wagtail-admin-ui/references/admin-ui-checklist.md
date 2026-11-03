@@ -49,6 +49,12 @@ Every full page should have:
 - standard content width and padding from the closest native analogue; and
 - no duplicate legacy header below a slim breadcrumb header.
 
+Compare the rendered vertical gap below the header with the closest native
+screen at desktop and phone widths, accounting for inherited spacing. In
+versions where `generic/base.html` supplies only horizontal `nice-padding`,
+use an installed-version vertical spacing utility if the comparison shows it is
+needed, accounting for spacing already supplied by the content.
+
 Use the generic template's shell instead of manually including the header when
 possible. If a completely custom template is necessary, match the exact
 installed version's documented base blocks. Remember that Wagtail explicitly
